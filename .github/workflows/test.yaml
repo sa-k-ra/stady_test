@@ -23,7 +23,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
-          platforms: kalilinux/kali-rolling
+          file: Dockerfile
           push: true
           tags: sa-k-ra/stady_test:latest
