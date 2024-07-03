@@ -18,7 +18,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: am0125
-          password: Arsa25113012
+          password: Yakei39ra
       -
         name: Build and push
         uses: docker/build-push-action@v6
