@@ -25,4 +25,4 @@ jobs:
         with:
           file: Dockerfile
           push: true
-          tags: sa-k-ra/stady_test:latest
+          #tags: sa-k-ra/stady_test:latest
