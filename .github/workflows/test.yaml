@@ -47,4 +47,5 @@ jobs:
         with:
           args: |
             bash -c 
+            apt-get install -y kali-linux-core kali-linux-default kali-tools-web
             nmap -sV -T4 127.0.0.1:8000
