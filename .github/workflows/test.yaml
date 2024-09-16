@@ -48,5 +48,4 @@ jobs:
           args: |
             bash -c "
             # ここにKali Linuxツールの実行コマンドを書く
-          runs: |
-            sqlmap -u "http://127.0.0.1:8000/emfood"
+            nmap -sV -T4 127.0.0.1:8000
