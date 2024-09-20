@@ -27,6 +27,30 @@
 #           push: true
 #           tags: sa-k-ra/stady_test:latest
 
+# name: Pentest with Docker
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   pentest:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Run Kali Linux Docker Container
+#         uses: docker://kalilinux/kali-rolling
+#         with:
+#           usage: |
+#             apt install -y kali-linux-default
+#           args: |
+#             bash -c 
+#             nmap -sV -T4 127.0.0.1:8000
+
 name: Pentest with Docker
 
 on:
@@ -42,11 +66,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+
       - name: Run Kali Linux Docker Container
-        uses: docker://kalilinux/kali-rolling
-        with:
-          usage: |
-            apt install -y kali-linux-default
-          args: |
-            bash -c 
-            nmap -sV -T4 127.0.0.1:8000
+        run: |
+          docker run --rm kalilinux/kali-rolling /bin/bash -c "
+          apt update && \
+          apt install -y kali-linux-default && \
+          nmap -sV -T4 127.0.0.1:8000"
