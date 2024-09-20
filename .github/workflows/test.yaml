@@ -47,5 +47,6 @@ jobs:
         with:
           args: |
             bash -c 
+          usage: |
             apt install -y kali-linux-default
             nmap -sV -T4 127.0.0.1:8000
