@@ -40,12 +40,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Kali Linux Docker Container
         uses: docker://kalilinux/kali-rolling
         with:
           args: |
             bash -c 
-            apt-get install -y kali-linux-core kali-linux-default kali-tools-web
+            apt install -y kali-linux-default
             nmap -sV -T4 127.0.0.1:8000
