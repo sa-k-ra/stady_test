@@ -45,8 +45,8 @@ jobs:
       - name: Run Kali Linux Docker Container
         uses: docker://kalilinux/kali-rolling
         with:
-          args: |
-            bash -c 
           usage: |
             apt install -y kali-linux-default
+          args: |
+            bash -c 
             nmap -sV -T4 127.0.0.1:8000
